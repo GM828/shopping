@@ -126,9 +126,9 @@ func NewThriftPool(poolName string, factory *ThriftFactory, maxTotal int) (*Thri
 		MinEvictableIdleTime:    5 * time.Minute,  // 连接最大闲置时间（超过则回收）
 
 		// 优化：启用连接验证
-		TestOnBorrow:  true, // ← Borrow 时自动验证
-		TestOnReturn:  true, // ← Return 时自动验证
-		TestWhileIdle: true, // ← 闲置时定期验证
+		TestOnBorrow:  false, // ← Borrow 时自动验证
+		TestOnReturn:  true,  // ← Return 时自动验证
+		TestWhileIdle: true,  // ← 闲置时定期验证
 	}
 	objPool := pool.NewObjectPool(context.Background(), factory, config)
 	return &ThriftPool{
