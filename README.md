@@ -24,7 +24,8 @@ if garageID == "" || userID == "" {
 
 我们自己开发项目的时候，模拟一下就好，在接口工具当中，填写header即可
 
-![image-20251113175500404](C:\Users\GM\AppData\Roaming\Typora\typora-user-images\image-20251113175500404.png)
+<img width="994" height="288" alt="image" src="https://github.com/user-attachments/assets/0a0e1cf8-75f5-499e-9fb0-118507e8321e" />
+
 
 
 
