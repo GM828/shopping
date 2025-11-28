@@ -1,6 +1,9 @@
 package util
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 var (
 	DateUtil dateUtil
@@ -65,4 +68,8 @@ var DateLayout = struct {
 	YYYY_MM_DD_HH_MM:    "2006-01-02 15:04",    //yyyy-MM-dd HH:mm
 	YYYY_MM_DD_CN:       "2006年01月02日",         //yyyy-MM-dd Chinese format
 	YYYY:                "2006",                // yyyy
+}
+
+func Int64ToStr(i int64) string {
+	return fmt.Sprintf("%d", i)
 }
