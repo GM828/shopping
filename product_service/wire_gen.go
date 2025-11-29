@@ -21,7 +21,8 @@ func InitializeProductController() (*controller.ProductController, error) {
 	productPO := po.NewProductPO()
 	productStockPO := po.NewProductStockPO()
 	productRepository := repository.NewProductRepository(productPO, productStockPO)
-	productService := service.NewProductService(productRepository)
+	esRepository := repository.NewEsRepository()
+	productService := service.NewProductService(productRepository, esRepository)
 	productManager := manager.NewProductManager(productService)
 	productController := &controller.ProductController{
 		ProductManager: productManager,
@@ -33,7 +34,8 @@ func InitializeProductHandler() (*handler.ProductServiceImpl, error) {
 	productPO := po.NewProductPO()
 	productStockPO := po.NewProductStockPO()
 	productRepository := repository.NewProductRepository(productPO, productStockPO)
-	productService := service.NewProductService(productRepository)
+	esRepository := repository.NewEsRepository()
+	productService := service.NewProductService(productRepository, esRepository)
 	productManager := manager.NewProductManager(productService)
 	productServiceImpl := &handler.ProductServiceImpl{
 		ProductManager: productManager,

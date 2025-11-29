@@ -5,6 +5,35 @@ import (
 	"time"
 )
 
+type CustomTime struct {
+	time.Time
+}
+
+const timeLayout = "2006-01-02 15:04:05"
+
+func (ct *CustomTime) UnmarshalJSON(data []byte) error {
+	if string(data) == "null" || string(data) == `""` {
+		return nil
+	}
+	str := string(data)
+	if len(str) > 2 {
+		str = str[1 : len(str)-1] // 去除引号
+	}
+	t, err := time.Parse(timeLayout, str)
+	if err != nil {
+		return err
+	}
+	ct.Time = t
+	return nil
+}
+
+func (ct *CustomTime) MarshalJSON() ([]byte, error) {
+	if ct.Time.IsZero() {
+		return []byte("null"), nil
+	}
+	return []byte(`"` + ct.Time.Format(timeLayout) + `"`), nil
+}
+
 var (
 	DateUtil dateUtil
 )

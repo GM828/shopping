@@ -10,14 +10,23 @@ import (
 	"github.com/kitex-contrib/registry-nacos/registry"
 	"log"
 	"net"
+	"shopping/conn"
 	"shopping/database"
 	"shopping/product_service"
 	product "shopping/product_service/server/kitex_gen/product/productservice"
 )
 
 func main() {
-	// 初始化数据库连接
+	// 初始化MySQL数据库连接
 	database.Init()
+
+	// 初始化ES数据库连接
+	err := conn.EsConnect()
+	if err != nil {
+		log.Println("EsConnect error:", err)
+	} else {
+		log.Println("EsConnect success : " + conn.EsClient.String())
+	}
 
 	// 设置日志级别为 Debug，方便观察日志
 	klog.SetLevel(klog.LevelDebug)

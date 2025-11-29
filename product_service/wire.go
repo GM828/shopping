@@ -21,6 +21,7 @@ func InitializeProductController() (*controller.ProductController, error) {
 
 		// Repository
 		repository.NewProductRepository,
+		repository.NewEsRepository,
 		// Service
 		service.NewProductService,
 		// Manager
@@ -39,6 +40,7 @@ func InitializeProductHandler() (*handler.ProductServiceImpl, error) {
 
 		// Repository
 		repository.NewProductRepository,
+		repository.NewEsRepository,
 		// Service
 		service.NewProductService,
 		// Manager

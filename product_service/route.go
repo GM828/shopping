@@ -16,4 +16,6 @@ func (r *Route) Register(engine *gin.Engine) {
 	}
 	productGroup := engine.Group("/product")
 	productGroup.POST("/getProduct", productController.GetProductById)
+	productGroup.POST("/createIndex", productController.CreateIndex)
+	productGroup.POST("/getProductsByName", productController.GetProductsByName)
 }

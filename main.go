@@ -2,6 +2,8 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"log"
+	"shopping/conn"
 	"shopping/database"
 	"shopping/product_service"
 	"shopping/server"
@@ -11,6 +13,15 @@ import (
 func main() {
 	// 初始化gin
 	r := gin.Default()
+
+	// 初始化ES数据库连接
+	err := conn.EsConnect()
+	if err != nil {
+		log.Println("EsConnect error:", err)
+	} else {
+		log.Println("EsConnect success : " + conn.EsClient.String())
+	}
+
 	// 创建路由管理器
 	routerManager := server.NewRouterManager(r)
 	// 注册路由
@@ -18,7 +29,7 @@ func main() {
 	// 初始化数据库
 	database.Init()
 
-	err := r.Run(":9090")
+	err = r.Run(":9090")
 	if err != nil {
 		return
 	}

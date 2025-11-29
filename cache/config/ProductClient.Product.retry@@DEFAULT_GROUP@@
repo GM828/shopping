@@ -1,0 +1,37 @@
+{
+  "*": {
+    "enable": true,
+    "type": 0,
+    "failure_policy": {
+      "stop_policy": {
+        "max_retry_times": 3,
+        "max_duration_ms": 2000,
+        "cb_policy": {
+          "error_rate": 0.3
+        }
+      },
+      "backoff_policy": {
+        "backoff_type": "fixed",
+        "cfg_items": {
+          "fix_ms": 50
+        }
+      },
+      "retry_same_node": false
+    }
+  },
+  "echo": {
+    "enable": true,
+    "type": 1,
+    "backup_policy": {
+      "retry_delay_ms": 100,
+      "retry_same_node": false,
+      "stop_policy": {
+        "max_retry_times": 2,
+        "max_duration_ms": 300,
+        "cb_policy": {
+          "error_rate": 0.2
+        }
+      }
+    }
+  }
+}
