@@ -82,3 +82,10 @@ func (h *UserHandler) Login(ctx context.Context, request *user.UserLoginRequest)
 
 后续文章：https://blog.csdn.net/2201_75669520/article/details/155005840
 其他文章：https://blog.csdn.net/2201_75669520?type=blog
+
+
+# 新增Kitex框架实战
+
+新增product_service，使用Kitex框架进行客户端和服务端连接
+
+具体文章：https://mp.csdn.net/mp_blog/creation/editor/155242379
