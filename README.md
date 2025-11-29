@@ -16,4 +16,4 @@ Kitex具体文章：https://mp.csdn.net/mp_blog/creation/editor/155242379
 # 新增ES实战运用
 在product_service当中新增ES运用，支持基于商品名和商品描述的模糊查询
 
-ES具体文章：
+ES具体文章：https://mp.csdn.net/mp_blog/creation/editor/155316910
